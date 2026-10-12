@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NLP Guide for Beginners | Entri</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap">
+<style>
+:root{--sky:#0EA5E9;--sky-d:#0369A1;--sky-l:#E0F2FE;--bg:#F8FCFF;--ink:#0F2A3D;--mute:#4B6577;--card:#fff;--code:#0B3A5B;--codefg:#E6F6FF;--line:#BAE6FD;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky:#38BDF8;--sky-d:#7DD3FC;--sky-l:#0C2A3F;--bg:#071A27;--ink:#E6F3FB;--mute:#9DB8CA;--card:#0C2433;--code:#04121C;--codefg:#D6EEFB;--line:#1B4A68}}
+:root[data-theme="dark"]{--sky:#38BDF8;--sky-d:#7DD3FC;--sky-l:#0C2A3F;--bg:#071A27;--ink:#E6F3FB;--mute:#9DB8CA;--card:#0C2433;--code:#04121C;--codefg:#D6EEFB;--line:#1B4A68}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Nunito,system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--sky);color:#06293F;padding:56px 20px 44px}
+header>div,main,footer>div{max-width:820px;margin:0 auto}
+h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:0 0 10px;font-weight:800}
+header p{margin:0;font-size:1.1rem;font-weight:600}
+main{padding:12px 20px 40px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
+nav a{background:var(--sky-l);color:var(--sky-d);padding:6px 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.9rem}
+nav a:focus-visible,summary:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+section{margin:44px 0}
+h2{font-size:1.7rem;color:var(--sky-d);margin:0 0 12px;padding-bottom:6px;border-bottom:3px solid var(--sky)}
+h3{font-size:1.15rem;margin:26px 0 6px;color:var(--ink)}
+.box{background:var(--sky-l);border-left:5px solid var(--sky);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+pre{background:var(--code);color:var(--codefg);padding:14px 16px;border-radius:10px;overflow-x:auto;font:14px/1.55 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.out{border-left:4px solid var(--sky);background:var(--card);color:var(--ink)}
+.lbl{font-weight:800;font-size:.9rem;color:var(--sky-d);margin-top:10px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;font-size:.95rem}
+th{background:var(--sky);color:#06293F}
+ol.flow{padding-left:22px}
+ol.flow li{margin:6px 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0;padding:10px 16px}
+summary{cursor:pointer;font-weight:800;color:var(--sky-d)}
+details p{margin:8px 0 2px}
+code{background:var(--sky-l);padding:1px 6px;border-radius:5px;font-size:.92em}
+footer{background:var(--sky);color:#06293F;text-align:center;padding:20px;font-weight:800;font-size:1.05rem}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<header><div>
+<h1>NLP Guide for Beginners</h1>
+<p>Teach computers to understand human language: concepts, simple code, one project, and interview questions.</p>
+</div></header>
+<main>
+<nav>
+<a href="#intro">What is NLP</a><a href="#workflow">Workflow</a><a href="#types">Types</a><a href="#choose">Which algorithm</a><a href="#setup">Setup</a><a href="#basics">Essentials</a><a href="#project">Project</a><a href="#interview">Interview Q&amp;A</a>
+</nav>
+
+<section id="intro">
+<h2>1. Introduction: What is NLP?</h2>
+<p><b>Natural Language Processing (NLP)</b> is the part of Artificial Intelligence that helps computers read, understand, and generate human language (English, Tamil, Hindi and more).</p>
+<div class="box"><b>Everyday examples:</b> Google Translate, Siri and Alexa, Gmail spam filter, autocomplete on your keyboard, chatbots, and review sentiment on Amazon.</div>
+<p><b>Why is it hard?</b> Language is messy. The same word can mean different things ("bank" of a river vs. a bank for money), and sentences can be sarcastic, misspelled, or ambiguous. NLP converts text into numbers so that machines can find patterns.</p>
+</section>
+
+<section id="workflow">
+<h2>2. NLP Workflow</h2>
+<ol class="flow">
+<li><b>Collect data:</b> reviews, emails, tweets, documents.</li>
+<li><b>Clean text:</b> lowercase, remove punctuation, numbers, extra spaces.</li>
+<li><b>Tokenize:</b> split text into words or sentences.</li>
+<li><b>Remove stop words:</b> drop common words like "is", "the", "a".</li>
+<li><b>Normalize:</b> stemming or lemmatization to reduce words to a base form.</li>
+<li><b>Vectorize:</b> convert text to numbers (Bag of Words, TF-IDF, embeddings).</li>
+<li><b>Train a model:</b> Naive Bayes, Logistic Regression, or a neural network.</li>
+<li><b>Evaluate:</b> accuracy, precision, recall, F1-score.</li>
+<li><b>Deploy:</b> use the model in an app or API.</li>
+</ol>
+</section>
+
+<section id="types">
+<h2>3. Types of NLP Tasks</h2>
+<div class="scroll"><table>
+<tr><th>Type</th><th>What it does</th><th>Example</th></tr>
+<tr><td>Text classification</td><td>Assigns a label to text</td><td>Spam vs. not spam</td></tr>
+<tr><td>Sentiment analysis</td><td>Finds positive, negative or neutral opinion</td><td>Movie review rating</td></tr>
+<tr><td>Named Entity Recognition (NER)</td><td>Finds names, places, dates</td><td>"Entri is in Kochi" → Kochi = location</td></tr>
+<tr><td>Machine translation</td><td>Converts one language to another</td><td>English → Tamil</td></tr>
+<tr><td>Text summarization</td><td>Shortens long text</td><td>News in 3 lines</td></tr>
+<tr><td>Question answering / chatbots</td><td>Answers user questions</td><td>Customer support bot</td></tr>
+<tr><td>Text generation</td><td>Writes new text</td><td>ChatGPT-style assistants</td></tr>
+</table></div>
+<p>Approaches also fall into three groups: <b>rule-based</b> (hand-written patterns), <b>machine learning</b> (learns from labeled data) and <b>deep learning</b> (neural networks and transformers).</p>
+</section>
+
+<section id="choose">
+<h2>4. When to Choose Which Algorithm</h2>
+<div class="scroll"><table>
+<tr><th>Situation</th><th>Choose</th><th>Why</th></tr>
+<tr><td>Very small data, simple patterns</td><td>Rules / Regex</td><td>No training needed, fast</td></tr>
+<tr><td>Small to medium labeled data, need a quick baseline</td><td>TF-IDF + Naive Bayes or Logistic Regression</td><td>Fast, easy to explain, works well</td></tr>
+<tr><td>Need better accuracy, word order matters</td><td>LSTM / GRU</td><td>Remembers sequence</td></tr>
+<tr><td>Large data, complex tasks (QA, translation)</td><td>Transformers (BERT, GPT)</td><td>Understand context deeply</td></tr>
+<tr><td>Little data but want high accuracy</td><td>Pre-trained model (fine-tune)</td><td>Reuses knowledge from huge corpora</td></tr>
+</table></div>
+<div class="box"><b>Beginner tip:</b> always start with a simple baseline (TF-IDF + Logistic Regression). Move to complex models only if the baseline is not good enough.</div>
+</section>
+
+<section id="setup">
+<h2>5. Setup</h2>
+<div class="lbl">Install the two libraries we need</div>
+<pre># Run in terminal: NLTK for text processing, scikit-learn for ML
+pip install nltk scikit-learn</pre>
+<pre># Download NLTK data (one time only)
+import nltk
+nltk.download("punkt")
+nltk.download("punkt_tab")
+nltk.download("stopwords")
+nltk.download("wordnet")</pre>
+</section>
+
+<section id="basics">
+<h2>6. Essential Concepts with Code</h2>
+
+<h3>6.1 Tokenization</h3>
+<p><b>Concept:</b> breaking text into small units called tokens (words or sentences).<br><b>Explanation:</b> machines cannot work on a full sentence directly, so we split it first.</p>
+<pre># Split a sentence into word tokens using NLTK
+from nltk.tokenize import word_tokenize
+
+text = "I love learning NLP!"
+tokens = word_tokenize(text)
+print(tokens)</pre>
+<div class="lbl">Sample output</div>
+<pre class="out">['I', 'love', 'learning', 'NLP', '!']</pre>
+
+<h3>6.2 Stop word removal</h3>
+<p><b>Concept:</b> removing very common words that add little meaning.<br><b>Explanation:</b> words like "is", "the", "of" appear everywhere, so they do not help in finding patterns.</p>
+<pre># Keep only the useful words
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+
+text = "This is a simple example of natural language processing"
+stop_words = set(stopwords.words("english"))   # list of common English words
+tokens = word_tokenize(text.lower())           # lowercase first, then split
+filtered = [w for w in tokens if w not in stop_words]
+print(filtered)</pre>
+<div class="lbl">Sample output</div>
+<pre class="out">['simple', 'example', 'natural', 'language', 'processing']</pre>
+
+<h3>6.3 Stemming and Lemmatization</h3>
+<p><b>Concept:</b> reducing words to their root form.<br><b>Explanation:</b> <b>Stemming</b> chops word endings (fast, may give non-words). <b>Lemmatization</b> uses a dictionary and gives real words (slower, more accurate).</p>
+<pre># Compare stemming and lemmatization
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+
+stemmer = PorterStemmer()
+lemmatizer = WordNetLemmatizer()
+
+print(stemmer.stem("studies"))                  # stemming chops the ending
+print(lemmatizer.lemmatize("studies"))          # lemmatization gives a real word
+print(lemmatizer.lemmatize("running", pos="v")) # pos="v" tells it this is a verb
+print(lemmatizer.lemmatize("better", pos="a"))  # pos="a" means adjective</pre>
+<div class="lbl">Sample output</div>
+<pre class="out">studi
+study
+run
+good</pre>
+
+<h3>6.4 Bag of Words (turning text into numbers)</h3>
+<p><b>Concept:</b> represent each sentence as counts of the words it contains.<br><b>Explanation:</b> models need numbers. Bag of Words counts each word and ignores order. <b>TF-IDF</b> is an upgrade that gives lower weight to words common in every document (use <code>TfidfVectorizer</code> the same way).</p>
+<pre># Convert sentences into word-count vectors
+from sklearn.feature_extraction.text import CountVectorizer
+
+docs = ["I love NLP", "I love Python", "NLP is fun"]
+cv = CountVectorizer()
+matrix = cv.fit_transform(docs)          # learn vocabulary and count words
+print(cv.get_feature_names_out())        # the columns (vocabulary)
+print(matrix.toarray())                  # one row per sentence</pre>
+<div class="lbl">Sample output</div>
+<pre class="out">['fun' 'is' 'love' 'nlp' 'python']
+[[0 0 1 1 0]
+ [0 0 1 0 1]
+ [1 1 0 1 0]]</pre>
+<p>Single-letter words like "I" are ignored by default.</p>
+
+<h3>6.5 Word embeddings (just the idea)</h3>
+<p>Embeddings (Word2Vec, GloVe, BERT) represent words as vectors where similar words sit close together, so "king" and "queen" are near each other. Learn these after you are comfortable with the basics above.</p>
+</section>
+
+<section id="project">
+<h2>7. Sample Project: Movie Review Sentiment Classifier</h2>
+<p><b>Goal:</b> predict whether a review is positive or negative.<br><b>Steps:</b> prepare data → TF-IDF vectorize → train Logistic Regression → predict new reviews.</p>
+<pre># sentiment_project.py
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+
+# 1. Small training data (1 = positive, 0 = negative)
+reviews = [
+    "I love this movie", "Great acting and story", "Fantastic and amazing film",
+    "Best movie ever", "Wonderful experience",
+    "I hate this movie", "Terrible acting", "Worst film ever",
+    "Boring and awful", "Very bad experience",
+]
+labels = [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+
+# 2. Convert text to TF-IDF numbers
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(reviews)
+
+# 3. Train the model
+model = LogisticRegression()
+model.fit(X, labels)
+
+# 4. Predict on new reviews (use transform, NOT fit_transform)
+new_reviews = ["What a wonderful film", "Awful and boring story"]
+predictions = model.predict(vectorizer.transform(new_reviews))
+
+for text, p in zip(new_reviews, predictions):
+    print(text, "->", "Positive" if p == 1 else "Negative")</pre>
+<div class="lbl">Sample output</div>
+<pre class="out">What a wonderful film -> Positive
+Awful and boring story -> Negative</pre>
+<div class="box"><b>Next steps:</b> use a bigger dataset (like IMDB reviews), split data into train and test sets, check accuracy with <code>accuracy_score</code>, and try Naive Bayes for comparison.</div>
+</section>
+
+<section id="interview">
+<h2>8. Top 10 NLP Interview Questions for Freshers</h2>
+<details><summary>1. What is NLP?</summary><p>NLP is a branch of AI that enables computers to understand, interpret and generate human language.</p></details>
+<details><summary>2. What is tokenization?</summary><p>Splitting text into smaller units (tokens) such as words, sub-words or sentences.</p></details>
+<details><summary>3. What are stop words? Should we always remove them?</summary><p>Very common words like "is" and "the". Not always: for tasks like sentiment analysis, a word like "not" changes the meaning, so removing it can hurt.</p></details>
+<details><summary>4. Difference between stemming and lemmatization?</summary><p>Stemming cuts suffixes using rules ("studies" → "studi"). Lemmatization uses vocabulary and grammar to return a real base word ("studies" → "study").</p></details>
+<details><summary>5. What is Bag of Words and its limitation?</summary><p>It counts word occurrences per document. It ignores word order and meaning, and creates large sparse vectors.</p></details>
+<details><summary>6. What is TF-IDF?</summary><p>Term Frequency × Inverse Document Frequency. It scores a word higher if it is frequent in one document but rare across all documents.</p></details>
+<details><summary>7. What are word embeddings?</summary><p>Dense numeric vectors that capture meaning, so similar words have similar vectors (Word2Vec, GloVe).</p></details>
+<details><summary>8. What is Named Entity Recognition?</summary><p>Identifying and labeling entities in text such as person names, locations, organizations and dates.</p></details>
+<details><summary>9. What is the difference between RNN/LSTM and Transformers?</summary><p>RNNs and LSTMs read text one word at a time in order. Transformers use attention to look at all words at once, which is faster to train and captures long-range context better.</p></details>
+<details><summary>10. How do you evaluate a text classification model?</summary><p>Use accuracy, precision, recall, F1-score and a confusion matrix. For imbalanced data (like spam), F1 is more reliable than accuracy.</p></details>
+</section>
+</main>
+<footer><div>Entri Coding Tamil</div></footer>
+</body>
+</html>
